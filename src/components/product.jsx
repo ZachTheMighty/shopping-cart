@@ -29,14 +29,17 @@ export default function Product({
       <div className="font-semibold mt-2">{title}</div>
       <div className="mt-4">
         {showDesc ? (
-          <div onClick={() => setShowDesc(!showDesc)}>
+          <div
+            className="cursor-pointer"
+            onClick={() => setShowDesc(!showDesc)}
+          >
             <ChevronDown />
             {description}
           </div>
         ) : (
           <div
             onClick={() => setShowDesc(!showDesc)}
-            className="flex items-center"
+            className="flex items-center cursor-pointer"
           >
             <ChevronRight />
             <div>Description</div>
