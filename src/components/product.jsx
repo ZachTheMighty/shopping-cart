@@ -4,7 +4,7 @@ export default function Product({
   category,
   price,
   count,
-  rating,
+  rate,
   image,
 }) {
   return (
@@ -14,7 +14,7 @@ export default function Product({
         <div className="text-gray-400 ">{category}</div>
         <div>
           <span className="text-yellow-500 mr-1">★</span>
-          {rating}
+          {rate}
         </div>
       </div>
       <div className="font-semibold mt-2">{title}</div>
