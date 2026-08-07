@@ -28,20 +28,16 @@ export default function Shop() {
   return (
     <ul className="grid grid-cols-[repeat(auto-fit,_minmax(250px,1fr))] gap-16 p-16">
       {products.map((product) => (
-        <li
+        <Product
           key={product.id}
-          className="bg-gray-200 p-4 flex flex-col items-center"
-        >
-          <Product
-            title={product.title}
-            price={product.price}
-            description={product.description}
-            category={product.category}
-            image={product.image}
-            rate={product.rating.rate}
-            count={product.rating.count}
-          />
-        </li>
+          title={product.title}
+          price={product.price}
+          description={product.description}
+          category={product.category}
+          image={product.image}
+          rate={product.rating.rate}
+          count={product.rating.count}
+        />
       ))}
     </ul>
   );

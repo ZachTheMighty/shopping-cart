@@ -8,7 +8,7 @@ export default function Product({
   image,
 }) {
   return (
-    <div className="w-50 text-lg ">
+    <div className="text-lg bg-gray-200 p-4 flex flex-col items-center ">
       <img src={image} alt={title} className="w-50 h-50 object-contain" />
       <div className="flex justify-between mt-8">
         <div className="text-gray-400 ">{category}</div>
