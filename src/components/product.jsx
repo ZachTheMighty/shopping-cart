@@ -33,7 +33,10 @@ export default function Product({
             className="cursor-pointer"
             onClick={() => setShowDesc(!showDesc)}
           >
-            <ChevronDown />
+            <div className="flex items-center mb-2">
+              <ChevronDown />
+              Description
+            </div>
             {description}
           </div>
         ) : (
