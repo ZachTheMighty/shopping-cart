@@ -1,3 +1,5 @@
+import Homepage from "./components/homepage.jsx";
+
 export default function App() {
-  return <div className="bg-sky-300">sdf</div>;
+  return <Homepage />;
 }
