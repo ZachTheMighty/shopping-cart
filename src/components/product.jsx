@@ -8,9 +8,9 @@ export default function Product({
   image,
 }) {
   return (
-    <div className="w-50 ml-8 text-lg">
-      <img src={image} alt={title} />
-      <div className="flex justify-between">
+    <div className="w-50 text-lg ">
+      <img src={image} alt={title} className="w-50 h-50 object-contain" />
+      <div className="flex justify-between mt-8">
         <div className="text-gray-400 ">{category}</div>
         <div>
           <span className="text-yellow-500 mr-1">★</span>
