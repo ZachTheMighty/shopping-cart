@@ -17,10 +17,15 @@ export default function Shop() {
       .finally(() => setLoading(false));
   });
 
-  if (loading) return <div>Loading products...</div>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
+        Loading products...
+      </div>
+    );
   if (error)
     return (
-      <div>
+      <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
         An error happened while loading products, try again tomorrow, bitch
       </div>
     );
