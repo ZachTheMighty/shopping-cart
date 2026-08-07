@@ -22,7 +22,9 @@ export default function Product({
         </div>
       </div>
       <div className="font-semibold mt-2">{title}</div>
-      <div className="mt-4">{description}</div>
+      <div className="mt-4">
+        <details>{description}</details>
+      </div>
       <div className="mt-2">
         <div className="text-gray-600">{count} pcs</div>
         <div>${price}</div>
