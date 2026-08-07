@@ -47,7 +47,7 @@ export default function Product({
         )}
       </div>
       <div className="mt-2">
-        <div className="text-gray-600">{count} pcs</div>
+        <div className="text-gray-600">{count} pcs in stock</div>
         <div>${price}</div>
       </div>
     </div>
