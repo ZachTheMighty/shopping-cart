@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 
-export default function Product({ product }) {
+export default function Product({ product, setProducts }) {
   const [showDesc, setShowDesc] = useState(false);
+  const [quantity, setQuantity] = useState("");
 
   return (
     <div className="text-lg bg-gray-200 p-16 flex flex-col justify-between rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
@@ -49,6 +50,19 @@ export default function Product({ product }) {
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          setProducts((prevProducts) =>
+            prevProducts.map((element) =>
+              element === product
+                ? {
+                    ...product,
+                    rating: {
+                      ...product.rating,
+                      count: product.rating.count - quantity,
+                    },
+                  }
+                : element,
+            ),
+          );
         }}
       >
         <div className="mt-8 flex flex-col gap-2">
@@ -61,6 +75,8 @@ export default function Product({ product }) {
               min="1"
               max={product.count}
               id="count"
+              value={quantity}
+              onChange={(event) => setQuantity(event.target.value)}
               className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full"
             />
             <button className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full hover:bg-teal-800 active:bg-teal-700 cursor-pointer">
