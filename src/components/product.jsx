@@ -73,7 +73,7 @@ export default function Product({ product, setProducts }) {
             <input
               type="number"
               min="1"
-              max={product.count}
+              max={product.rating.count}
               id="count"
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
