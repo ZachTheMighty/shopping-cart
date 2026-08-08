@@ -53,6 +53,30 @@ export default function Product({
         <div className="text-gray-600">{count} pcs in stock</div>
         <div>${price}</div>
       </div>
+
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
+        <div className="mt-8 flex flex-col gap-2">
+          <label for="count" className="text-xl font-semibold">
+            Quantity
+          </label>
+          <div className="flex flex-col gap-4 ">
+            <input
+              type="number"
+              min="1"
+              max={count}
+              id="count"
+              className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full"
+            />
+            <button className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }
