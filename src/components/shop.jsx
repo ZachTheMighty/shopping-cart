@@ -15,7 +15,7 @@ export default function Shop() {
       .then((data) => setProducts(data))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   if (loading)
     return (
