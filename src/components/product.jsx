@@ -71,7 +71,7 @@ export default function Product({
               id="count"
               className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full"
             />
-            <button className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full">
+            <button className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full hover:bg-teal-800 active:bg-teal-700 cursor-pointer">
               Add to cart
             </button>
           </div>
