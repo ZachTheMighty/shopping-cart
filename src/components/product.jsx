@@ -48,7 +48,11 @@ export default function Product({
         )}
       </div>
       <div className="mt-2">
-        <div className="text-gray-600">{product.rating.count} pcs in stock</div>
+        <div className="text-gray-600">
+          {product.rating.count === 0
+            ? "Out of stock"
+            : product.rating.count + " Pcs in stock"}
+        </div>
         <div>${product.price}</div>
       </div>
 
@@ -83,11 +87,15 @@ export default function Product({
               min="1"
               max={product.rating.count}
               id="count"
+              {...(product.rating.count === 0 && { disabled: true })}
               value={quantity}
               onChange={(event) => setQuantity(event.target.value)}
-              className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full"
+              className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full disabled:hover:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             />
-            <button className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full hover:bg-teal-800 active:bg-teal-700 cursor-pointer">
+            <button
+              {...(product.rating.count === 0 && { disabled: true })}
+              className="bg-teal-700 text-white font-semibold text-xl px-4 py-2 rounded-full hover:bg-teal-800 active:bg-teal-700 cursor-pointer disabled:hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Add to cart
             </button>
           </div>
