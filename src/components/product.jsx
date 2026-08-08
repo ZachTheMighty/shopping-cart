@@ -1,32 +1,24 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 
-export default function Product({
-  title,
-  description,
-  category,
-  price,
-  count,
-  rate,
-  image,
-}) {
+export default function Product({ product }) {
   const [showDesc, setShowDesc] = useState(false);
 
   return (
     <div className="text-lg bg-gray-200 p-16 flex flex-col justify-between rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
       <img
-        src={image}
-        alt={title}
+        src={product.image}
+        alt={product.title}
         className="w-50 h-50 object-contain self-center"
       />
       <div className="flex justify-between mt-8">
-        <div className="text-gray-400 ">{category}</div>
+        <div className="text-gray-400 ">{product.category}</div>
         <div>
           <span className="text-yellow-500 mr-1">★</span>
-          {rate}
+          {product.rating.rate}
         </div>
       </div>
-      <div className="font-semibold mt-2">{title}</div>
+      <div className="font-semibold mt-2">{product.title}</div>
       <div className="mt-4">
         {showDesc ? (
           <button
@@ -37,7 +29,7 @@ export default function Product({
               <ChevronDown />
               Description
             </div>
-            <div className="text-start">{description}</div>
+            <div className="text-start">{product.description}</div>
           </button>
         ) : (
           <button
@@ -50,8 +42,8 @@ export default function Product({
         )}
       </div>
       <div className="mt-2">
-        <div className="text-gray-600">{count} pcs in stock</div>
-        <div>${price}</div>
+        <div className="text-gray-600">{product.rating.count} pcs in stock</div>
+        <div>${product.price}</div>
       </div>
 
       <form
@@ -67,7 +59,7 @@ export default function Product({
             <input
               type="number"
               min="1"
-              max={count}
+              max={product.count}
               id="count"
               className="bg-white px-4 py-2 hover:outline-2 hover:outline-teal-700 focus:outline-2 focus:outline-teal-700 rounded-full"
             />
