@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 
-export default function Product({ product, setProducts }) {
+export default function Product({
+  product,
+  setProducts,
+  itemsInCart,
+  setItemsInCart,
+}) {
   const [showDesc, setShowDesc] = useState(false);
   const [quantity, setQuantity] = useState("");
 
@@ -64,6 +69,8 @@ export default function Product({ product, setProducts }) {
             ),
           );
           setQuantity("");
+          !itemsInCart.some((item) => item.id === product.id) &&
+            setItemsInCart((prevItems) => [...prevItems, product]);
         }}
       >
         <div className="mt-8 flex flex-col gap-2">

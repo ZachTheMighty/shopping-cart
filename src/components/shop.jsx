@@ -6,6 +6,7 @@ export default function Shop() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [itemsInCart, setItemsInCart] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
@@ -21,7 +22,7 @@ export default function Shop() {
   if (loading)
     return (
       <div className="px-8 py-4">
-        <Navbar />
+        <Navbar items={itemsInCart.length} />
         <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
           Loading products...
         </div>
@@ -30,7 +31,7 @@ export default function Shop() {
   if (error)
     return (
       <div className="px-8 py-4">
-        <Navbar />
+        <Navbar items={itemsInCart.length} />
         <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
           An error happened while loading products, try again tomorrow, bitch
         </div>
@@ -39,13 +40,15 @@ export default function Shop() {
 
   return (
     <div className="px-8 py-4">
-      <Navbar />
+      <Navbar items={itemsInCart.length} />
       <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 p-16">
         {products.map((product) => (
           <Product
             key={product.id}
             product={product}
             setProducts={setProducts}
+            itemsInCart={itemsInCart}
+            setItemsInCart={setItemsInCart}
           />
         ))}
       </ul>
