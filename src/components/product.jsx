@@ -13,7 +13,7 @@ export default function Product({
   const [showDesc, setShowDesc] = useState(false);
 
   return (
-    <div className="text-lg bg-gray-200 p-16 flex flex-col rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
+    <div className="text-lg bg-gray-200 p-16 flex flex-col justify-between rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
       <img
         src={image}
         alt={title}
