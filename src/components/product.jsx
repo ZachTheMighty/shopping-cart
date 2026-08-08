@@ -52,7 +52,7 @@ export default function Product({ product }) {
         }}
       >
         <div className="mt-8 flex flex-col gap-2">
-          <label for="count" className="text-xl font-semibold">
+          <label htmlFor="count" className="text-xl font-semibold">
             Quantity
           </label>
           <div className="flex flex-col gap-4 ">
