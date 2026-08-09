@@ -4,7 +4,7 @@ import Navbar from "./navbar.jsx";
 import { useEffect, useState } from "react";
 import Sort from "./sort.jsx";
 
-export default function Shop() {
+export default function Shop({ category = null }) {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -58,6 +58,9 @@ export default function Shop() {
         <div className="mt-4">
           <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
             {products
+              .filter((product) =>
+                category ? product.category === category : product,
+              )
               .toSorted((productA, productB) => {
                 if (value === "Rating")
                   return descendingly
