@@ -1,6 +1,6 @@
 import Shop from "./components/shop.jsx";
 import App from "./App.jsx";
-import Categories from "./components/categories.jsx";
+import Categories from "./components/categories/categories.jsx";
 
 export default [
   {
