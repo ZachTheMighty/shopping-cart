@@ -10,6 +10,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [itemsInCart, setItemsInCart] = useState([]);
   const [value, setValue] = useState("Sort by");
+  const [descendingly, setDescendingly] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
@@ -51,17 +52,25 @@ export default function Shop() {
           methods={["Rating", "Price", "Quantity"]}
           value={value}
           setValue={setValue}
+          descendingly={descendingly}
+          setDescendingly={setDescendingly}
         />
         <div className="mt-4">
           <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
             {products
               .toSorted((productA, productB) => {
                 if (value === "Rating")
-                  return productB.rating.rate - productA.rating.rate;
+                  return descendingly
+                    ? productB.rating.rate - productA.rating.rate
+                    : productA.rating.rate - productB.rating.rate;
                 else if (value === "Quantity")
-                  return productB.rating.count - productA.rating.count;
+                  return descendingly
+                    ? productB.rating.count - productA.rating.count
+                    : productA.rating.count - productB.rating.count;
                 else if (value === "Price")
-                  return productB.price - productA.price;
+                  return descendingly
+                    ? productB.price - productA.price
+                    : productA.price - productB.price;
                 else return "";
               })
               .map((product) => (

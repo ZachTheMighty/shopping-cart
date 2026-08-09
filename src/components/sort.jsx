@@ -6,10 +6,15 @@ import {
 import { useState } from "react";
 import SortingMethod from "./sorting_method.jsx";
 
-export default function Sort({ methods, value, setValue }) {
+export default function Sort({
+  methods,
+  value,
+  setValue,
+  descendingly,
+  setDescendingly,
+}) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedIndex, setCheckedIndex] = useState(-1);
-  const [descendingly, setDescendingly] = useState(true);
 
   return (
     <div className="relative">
