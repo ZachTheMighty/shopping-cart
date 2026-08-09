@@ -1,6 +1,6 @@
-import Homepage from "./components/homepage.jsx";
 import Shop from "./components/shop.jsx";
 import App from "./App.jsx";
+import Categories from "./components/categories.jsx";
 
 export default [
   {
@@ -10,5 +10,9 @@ export default [
   {
     path: "shop",
     element: <Shop />,
+  },
+  {
+    path: "shop/categories",
+    element: <Categories />,
   },
 ];
