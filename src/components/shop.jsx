@@ -9,6 +9,7 @@ export default function Shop() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [itemsInCart, setItemsInCart] = useState([]);
+  const [value, setValue] = useState("Sort by");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
@@ -46,18 +47,32 @@ export default function Shop() {
         <Navbar items={itemsInCart.length} />
       </div>
       <div className="px-2 sm:px-24 mt-16">
-        <Sort methods={["Rating", "Price", "Quantity"]} />
+        <Sort
+          methods={["Rating", "Price", "Quantity"]}
+          value={value}
+          setValue={setValue}
+        />
         <div className="mt-4">
           <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
-            {products.map((product) => (
-              <Product
-                key={product.id}
-                product={product}
-                setProducts={setProducts}
-                itemsInCart={itemsInCart}
-                setItemsInCart={setItemsInCart}
-              />
-            ))}
+            {products
+              .toSorted((productA, productB) => {
+                if (value === "Rating")
+                  return productB.rating.rate - productA.rating.rate;
+                else if (value === "Quantity")
+                  return productB.rating.count - productA.rating.count;
+                else if (value === "Price")
+                  return productB.price - productA.price;
+                else return "";
+              })
+              .map((product) => (
+                <Product
+                  key={product.id}
+                  product={product}
+                  setProducts={setProducts}
+                  itemsInCart={itemsInCart}
+                  setItemsInCart={setItemsInCart}
+                />
+              ))}
           </ul>
         </div>
       </div>

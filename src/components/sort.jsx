@@ -2,8 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import SortingMethod from "./sorting_method.jsx";
 
-export default function Sort({ methods }) {
-  const [value, setValue] = useState("Sort by");
+export default function Sort({ methods, value, setValue }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedIndex, setCheckedIndex] = useState(-1);
 
