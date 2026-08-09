@@ -3,10 +3,10 @@ import { Link } from "react-router";
 
 export default function Navbar({ items = 0 }) {
   return (
-    <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between ">
+    <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between ">
       <Link
         to="/"
-        className="inline-block text-5xl font-semibold hover:text-gray-700"
+        className="inline-block text-3xl md:text-5xl font-semibold hover:text-gray-700"
       >
         Brandname
       </Link>
@@ -36,7 +36,7 @@ export default function Navbar({ items = 0 }) {
         </Link>
         <Link
           to="/shop/categories"
-          className="text-teal-700 font-semibold hover:text-teal-500"
+          className="text-teal-700 font-semibold hover:text-teal-500 text-center"
         >
           Browse our catalogue
         </Link>
