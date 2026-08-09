@@ -39,19 +39,23 @@ export default function Shop() {
     );
 
   return (
-    <div className="px-8 py-4">
-      <Navbar items={itemsInCart.length} />
-      <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 p-16">
-        {products.map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-            setProducts={setProducts}
-            itemsInCart={itemsInCart}
-            setItemsInCart={setItemsInCart}
-          />
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="px-8 py-4">
+        <Navbar items={itemsInCart.length} />
+      </div>
+      <div className="px-32 mt-16">
+        <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+              setProducts={setProducts}
+              itemsInCart={itemsInCart}
+              setItemsInCart={setItemsInCart}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
