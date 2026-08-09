@@ -26,6 +26,7 @@ export default function Sort({ methods, value, setValue }) {
                     setValue={setValue}
                     isChecked={checkedIndex === index}
                     setIsChecked={() => setCheckedIndex(index)}
+                    setShowDropdown={setShowDropdown}
                   />
                 }
               </li>
