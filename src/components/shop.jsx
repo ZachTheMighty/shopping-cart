@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import Product from "./product.jsx";
 import Navbar from "./navbar.jsx";
 import { useEffect, useState } from "react";

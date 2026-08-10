@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Product({
   product,
@@ -18,7 +19,12 @@ export default function Product({
         className="w-50 h-50 object-contain self-center"
       />
       <div className="flex justify-between mt-8">
-        <div className="text-gray-400 ">{product.category}</div>
+        <Link
+          to={`/shop/categories/${product.category}`}
+          className="text-gray-400 hover:text-teal-500"
+        >
+          {product.category}
+        </Link>
         <div>
           <span className="text-yellow-500 mr-1">★</span>
           {product.rating.rate}
