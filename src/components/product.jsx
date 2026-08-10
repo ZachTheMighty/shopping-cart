@@ -21,6 +21,12 @@ export default function Product({
       <div className="flex justify-between mt-8">
         <Link
           to={`/shop/categories/${product.category}`}
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
           className="text-gray-400 hover:text-teal-500"
         >
           {product.category}
