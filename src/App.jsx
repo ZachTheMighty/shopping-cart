@@ -1,5 +1,11 @@
-import Homepage from "./components/homepage.jsx";
+import { Outlet } from "react-router";
+import Navbar from "./components/navbar.jsx";
 
 export default function App() {
-  return <Homepage />;
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 }

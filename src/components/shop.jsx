@@ -1,15 +1,17 @@
 import Product from "./product.jsx";
-import Navbar from "./navbar.jsx";
 import { useEffect, useState } from "react";
 import Sort from "./sort.jsx";
+import { useParams } from "react-router";
 
-export default function Shop({ category = null }) {
+export default function Shop() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [itemsInCart, setItemsInCart] = useState([]);
   const [value, setValue] = useState("Sort by");
   const [descendingly, setDescendingly] = useState(true);
+
+  const { category } = useParams();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
@@ -25,7 +27,6 @@ export default function Shop({ category = null }) {
   if (loading)
     return (
       <div className="px-8 py-4">
-        <Navbar items={itemsInCart.length} />
         <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
           Loading products...
         </div>
@@ -34,7 +35,6 @@ export default function Shop({ category = null }) {
   if (error)
     return (
       <div className="px-8 py-4">
-        <Navbar items={itemsInCart.length} />
         <div className="min-h-screen flex justify-center items-center text-3xl font-semibold">
           An error happened while loading products, try again tomorrow, bitch
         </div>
@@ -43,9 +43,6 @@ export default function Shop({ category = null }) {
 
   return (
     <>
-      <div className="px-8 py-4">
-        <Navbar items={itemsInCart.length} />
-      </div>
       <div className="px-2 sm:px-24 mt-16">
         <Sort
           methods={["Rating", "Price", "Quantity"]}

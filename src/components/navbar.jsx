@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function Navbar({ items = 0 }) {
   return (
-    <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between ">
+    <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between px-16 py-8">
       <Link
         to="/"
         className="inline-block text-3xl md:text-5xl font-semibold hover:text-gray-700"

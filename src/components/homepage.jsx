@@ -1,10 +1,8 @@
-import Navbar from "./navbar.jsx";
 import { Link } from "react-router";
 
 export default function Homepage() {
   return (
-    <div className="px-8 py-4">
-      <Navbar />
+    <div>
       <div className="mt-32 text-center">
         <div className="text-3xl font-semibold">
           We Offer The Most Random Shit
