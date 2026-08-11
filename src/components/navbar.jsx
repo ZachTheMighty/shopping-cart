@@ -1,7 +1,7 @@
 import { Search, ShoppingCart, UserRound } from "lucide-react";
 import { Link } from "react-router";
 
-export default function Navbar({ items = 0 }) {
+export default function Navbar({ numOfItems = 0 }) {
   return (
     <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between px-16 py-8">
       <Link
@@ -16,11 +16,11 @@ export default function Navbar({ items = 0 }) {
           <Search className="hover:cursor-pointer" />
           <div className="relative">
             <ShoppingCart className="hover:cursor-pointer" />
-            {items !== 0 && (
+            {numOfItems !== 0 && (
               <div
-                className={`absolute text-white ${items >= 10 ? "text-xs" : "text-base"} font-semibold bg-red-500 w-5 h-5 rounded-full flex justify-center items-center -top-3 -right-3`}
+                className={`absolute text-white ${numOfItems >= 10 ? "text-xs" : "text-base"} font-semibold bg-red-500 w-5 h-5 rounded-full flex justify-center items-center -top-3 -right-3`}
               >
-                {items}
+                {numOfItems}
               </div>
             )}
           </div>

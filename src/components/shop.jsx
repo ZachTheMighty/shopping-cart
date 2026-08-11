@@ -1,17 +1,17 @@
 import Product from "./product.jsx";
 import { useEffect, useState } from "react";
 import Sort from "./sort.jsx";
-import { useParams } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 
 export default function Shop() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [itemsInCart, setItemsInCart] = useState([]);
   const [value, setValue] = useState("Sort by");
   const [descendingly, setDescendingly] = useState(true);
 
   const { category } = useParams();
+  const { itemsInCart, setItemsInCart } = useOutletContext();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
