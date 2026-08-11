@@ -7,13 +7,13 @@ export default function Categories() {
       <Navbar />
       <div className="flex flex-col items-center gap-2 sm:gap-0 sm:flex-row sm:justify-between md:justify-evenly mt-8 md:text-xl">
         <Link
-          to="/shop/categories/men's_clothing"
+          to="/shop/categories/men's clothing"
           className="hover:text-teal-500"
         >
           Men's Clothing
         </Link>
         <Link
-          to="/shop/categories/women's_clothing"
+          to="/shop/categories/women's clothing"
           className="hover:text-teal-500"
         >
           Women's clothing

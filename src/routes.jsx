@@ -16,11 +16,11 @@ export default [
     element: <Categories />,
   },
   {
-    path: "shop/categories/men's_clothing",
+    path: "shop/categories/men's clothing",
     element: <Shop category={"men's clothing"} />,
   },
   {
-    path: "shop/categories/women's_clothing",
+    path: "shop/categories/women's clothing",
     element: <Shop category={"women's clothing"} />,
   },
   {
