@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router";
+import { useOutletContext } from "react-router";
 
-export default function Product({
-  product,
-  setProducts,
-  itemsInCart,
-  setItemsInCart,
-}) {
+export default function Product({ product, setProducts }) {
   const [showDesc, setShowDesc] = useState(false);
   const [quantity, setQuantity] = useState("");
+
+  const { itemsInCart, setItemsInCart } = useOutletContext();
 
   return (
     <div className="text-lg bg-gray-200 p-16 flex flex-col justify-between rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
