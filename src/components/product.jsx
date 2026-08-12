@@ -96,6 +96,7 @@ export default function Product({ product, setProducts }) {
               type="number"
               min="1"
               max={product.rating.count}
+              required
               id="count"
               {...(product.rating.count === 0 && { disabled: true })}
               value={quantity}
