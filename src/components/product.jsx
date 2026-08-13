@@ -9,7 +9,10 @@ export default function Product({ product, setProducts }) {
   return (
     <div className="text-lg bg-gray-200 rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
       <div className="mb-8 sm:mb-0 flex justify-end pr-4 pt-4">
-        <X color="red" size={40} className="" />
+        <X
+          size={40}
+          className="text-red-500 hover:text-red-400 active:text-red-500 hover:rotate-180 transition-transform duration-400 cursor-pointer"
+        />
       </div>
       <div className="p-16 pt-0 flex flex-col justify-between">
         <img
