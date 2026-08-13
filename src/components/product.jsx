@@ -126,7 +126,7 @@ export default function Product({ product, setProducts, isInCart }) {
               <input
                 type="number"
                 min="1"
-                max={product.rating.amountLeft}
+                max={product.rating.count}
                 required
                 id="count"
                 {...(product.rating.amountLeft === 0 && { disabled: true })}
