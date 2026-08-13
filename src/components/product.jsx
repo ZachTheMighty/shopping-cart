@@ -83,13 +83,11 @@ export default function Product({ product, setProducts, isInCart }) {
         </div>
         <div className="mt-2">
           <div className="text-gray-600">
-            {product.rating.amountLeft
-              ? product.rating.amountLeft === 0
+            {!product.rating.amountLeft && product.rating.amountLeft !== 0
+              ? product.rating.count + " Pcs in stock"
+              : product.rating.amountLeft === 0
                 ? "Out of stock"
-                : product.rating.amountLeft + " Pcs in stock"
-              : product.rating.count === 0
-                ? "Out of stock"
-                : product.rating.count + " Pcs in stock"}
+                : product.rating.amountLeft + " Pcs in stock"}
           </div>
           {isInCart && (
             <div className="text-gray-600">Quantity: {product.quantity}</div>
