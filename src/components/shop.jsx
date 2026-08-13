@@ -1,28 +1,14 @@
 import Product from "./product.jsx";
-import { useEffect, useState } from "react";
 import Sort from "./sort.jsx";
 import { useOutletContext, useParams } from "react-router";
+import { useState } from "react";
 
-export default function Shop() {
-  const [products, setProducts] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function Shop({ itemsInCart, isInCart }) {
   const [value, setValue] = useState("Sort by");
   const [descendingly, setDescendingly] = useState(true);
 
   const { category } = useParams();
-  const { itemsInCart, setItemsInCart } = useOutletContext();
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/")
-      .then((response) => {
-        if (response.status >= 400) throw new Error("server error");
-        return response.json();
-      })
-      .then((data) => setProducts(data))
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
-  }, []);
+  const { products, setProducts, error, loading } = useOutletContext();
 
   if (loading)
     return (
@@ -52,8 +38,8 @@ export default function Shop() {
           setDescendingly={setDescendingly}
         />
         <div className="mt-4">
-          <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
-            {products
+          <ul className="grid place-content-center sm:grid-cols-[repeat(auto-fit,_minmax(400px,1fr))] gap-16 mb-16">
+            {(itemsInCart ? itemsInCart : products)
               .filter((product) =>
                 category ? product.category === category : product,
               )
@@ -77,8 +63,7 @@ export default function Shop() {
                   key={product.id}
                   product={product}
                   setProducts={setProducts}
-                  itemsInCart={itemsInCart}
-                  setItemsInCart={setItemsInCart}
+                  isInCart={isInCart}
                 />
               ))}
           </ul>

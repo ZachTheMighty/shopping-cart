@@ -14,7 +14,7 @@ export default function Navbar({ numOfItems = 0 }) {
       <div>
         <div className="flex items-center gap-8">
           <Search className="hover:cursor-pointer" />
-          <div className="relative">
+          <Link to="cart" className="relative">
             <ShoppingCart className="hover:cursor-pointer" />
             {numOfItems !== 0 && (
               <div
@@ -23,19 +23,19 @@ export default function Navbar({ numOfItems = 0 }) {
                 {numOfItems}
               </div>
             )}
-          </div>
+          </Link>
           <UserRound className="hover:cursor-pointer" />
         </div>
       </div>
       <div className="flex flex-col items-center gap-4 md:flex-row">
         <Link
-          to="/shop"
+          to="shop"
           className="bg-teal-700 text-white font-semibold px-8 py-2 rounded-md hover:bg-teal-800"
         >
           Shop now
         </Link>
         <Link
-          to="/shop/categories"
+          to="shop/categories"
           className="text-teal-700 font-semibold hover:text-teal-500 text-center"
         >
           Browse our catalogue
