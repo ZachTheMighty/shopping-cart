@@ -3,7 +3,7 @@ import Sort from "./sort.jsx";
 import { useOutletContext, useParams } from "react-router";
 import { useState } from "react";
 
-export default function Shop({ itemsInCart }) {
+export default function Shop({ itemsInCart, isInCart }) {
   const [value, setValue] = useState("Sort by");
   const [descendingly, setDescendingly] = useState(true);
 
@@ -63,6 +63,7 @@ export default function Shop({ itemsInCart }) {
                   key={product.id}
                   product={product}
                   setProducts={setProducts}
+                  isInCart={isInCart}
                 />
               ))}
           </ul>

@@ -1,13 +1,14 @@
 import { useOutletContext } from "react-router";
 import { Link } from "react-router";
+import Shop from "./shop";
 
 export default function Cart() {
-  const { itemsInCart } = useOutletContext();
+  const { products } = useOutletContext();
   return (
     <div className="flex flex-col items-center sm:block sm:ml-16">
       <div className="text-4xl font-semibold mb-8">Your Cart</div>
 
-      {itemsInCart.length === 0 ? (
+      {products?.filter((product) => product.isInCart).length === 0 ? (
         <div className="flex flex-col gap-2 items-center sm:items-start">
           <div className="text-xl">You don't have any items in cart.</div>
           <Link
@@ -18,7 +19,10 @@ export default function Cart() {
           </Link>
         </div>
       ) : (
-        ""
+        <Shop
+          itemsInCart={products?.filter((product) => product.isInCart)}
+          isInCart={true}
+        />
       )}
     </div>
   );
