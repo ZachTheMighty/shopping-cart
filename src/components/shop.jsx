@@ -38,7 +38,7 @@ export default function Shop({ itemsInCart }) {
           setDescendingly={setDescendingly}
         />
         <div className="mt-4">
-          <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
+          <ul className="grid place-content-center sm:grid-cols-[repeat(auto-fit,_minmax(400px,1fr))] gap-16 mb-16">
             {(itemsInCart ? itemsInCart : products)
               .filter((product) =>
                 category ? product.category === category : product,
