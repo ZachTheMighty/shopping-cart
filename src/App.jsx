@@ -3,7 +3,6 @@ import Navbar from "./components/navbar.jsx";
 import { useState, useEffect } from "react";
 
 export default function App() {
-  const [itemsInCart, setItemsInCart] = useState([]);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,11 +20,11 @@ export default function App() {
 
   return (
     <>
-      <Navbar numOfItems={itemsInCart.length} />
+      <Navbar
+        numOfItems={products?.filter((product) => product.isInCart).length}
+      />
       <Outlet
         context={{
-          itemsInCart,
-          setItemsInCart,
           products,
           setProducts,
           error,

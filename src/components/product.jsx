@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router";
-import { useOutletContext } from "react-router";
 
 export default function Product({ product, setProducts }) {
   const [showDesc, setShowDesc] = useState(false);
   const [quantity, setQuantity] = useState("");
-
-  const { itemsInCart, setItemsInCart } = useOutletContext();
 
   return (
     <div className="text-lg bg-gray-200 p-16 flex flex-col justify-between rounded-xl shadow-[0px_0px_20px_1px_rgba(0,0,0,0.1)]">
@@ -74,6 +71,7 @@ export default function Product({ product, setProducts }) {
               element === product
                 ? {
                     ...product,
+                    isInCart: true,
                     rating: {
                       ...product.rating,
                       count: product.rating.count - quantity,
@@ -83,8 +81,6 @@ export default function Product({ product, setProducts }) {
             ),
           );
           setQuantity("");
-          !itemsInCart.some((item) => item.id === product.id) &&
-            setItemsInCart((prevItems) => [...prevItems, product]);
         }}
       >
         <div className="mt-8 flex flex-col gap-2">

@@ -3,7 +3,7 @@ import Sort from "./sort.jsx";
 import { useOutletContext, useParams } from "react-router";
 import { useState } from "react";
 
-export default function Shop() {
+export default function Shop({ itemsInCart }) {
   const [value, setValue] = useState("Sort by");
   const [descendingly, setDescendingly] = useState(true);
 
@@ -39,7 +39,7 @@ export default function Shop() {
         />
         <div className="mt-4">
           <ul className="grid place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,1fr))] gap-16 pb-16">
-            {products
+            {(itemsInCart ? itemsInCart : products)
               .filter((product) =>
                 category ? product.category === category : product,
               )
