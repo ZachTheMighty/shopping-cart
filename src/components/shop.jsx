@@ -30,6 +30,11 @@ export default function Shop({ itemsInCart, isInCart }) {
   return (
     <>
       <div className="px-2 sm:px-24 mt-16">
+        <div className="text-4xl font-semibold mb-8">
+          {category
+            ? category[0].toUpperCase() + category.slice(1)
+            : "All products"}
+        </div>
         <Sort
           methods={["Rating", "Price", "Quantity"]}
           value={value}
