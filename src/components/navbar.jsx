@@ -11,21 +11,19 @@ export default function Navbar({ numOfItems = 0 }) {
         Brandname
       </Link>
 
-      <div>
-        <div className="flex items-center gap-8">
-          <Search className="hover:cursor-pointer" />
-          <Link to="cart" className="relative">
-            <ShoppingCart className="hover:cursor-pointer" />
-            {numOfItems !== 0 && (
-              <div
-                className={`absolute text-white ${numOfItems >= 10 ? "text-xs" : "text-base"} font-semibold bg-red-500 w-5 h-5 rounded-full flex justify-center items-center -top-3 -right-3`}
-              >
-                {numOfItems}
-              </div>
-            )}
-          </Link>
-          <UserRound className="hover:cursor-pointer" />
-        </div>
+      <div className="flex items-center gap-8">
+        <Search className="hover:cursor-pointer" />
+        <Link to="cart" className="relative">
+          <ShoppingCart className="hover:cursor-pointer" />
+          {numOfItems !== 0 && (
+            <div
+              className={`absolute text-white ${numOfItems >= 10 ? "text-xs" : "text-base"} font-semibold bg-red-500 w-5 h-5 rounded-full flex justify-center items-center -top-3 -right-3`}
+            >
+              {numOfItems}
+            </div>
+          )}
+        </Link>
+        <UserRound className="hover:cursor-pointer" />
       </div>
       <div className="flex flex-col items-center gap-4 md:flex-row">
         <Link
